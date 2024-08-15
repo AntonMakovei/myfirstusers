@@ -1,0 +1,44 @@
+{
+  "categories": [
+    {
+      "title": "ACQUISITION",
+      "items": ["Content", "SEO", "Sales", "Social", "Ads"]
+    },
+    { "title": "CONVERSION", "items": ["Copywriting", "Landing Page"] },
+    {
+      "title": "MORE",
+      "items": ["Retention", "Brand", "Referral", "Creative"]
+    },
+    { "title": "NEWSLETTER", "items": [] }
+  ],
+  "blogs": [
+    {
+      "id": "same-interview",
+      "slug": "same-interview",
+      "title": "Same interview. 700x reach.",
+      "duration": "30 secs",
+      "tag": "Social"
+    },
+    {
+      "id": "making-money",
+      "slug": "making-money",
+      "title": "Posting seltzer. Making money.",
+      "duration": "2 mins",
+      "tag": "Creative"
+    },
+    {
+      "id": "the-saleswoman-closing",
+      "slug": "the-saleswoman-closing",
+      "title": "The saleswoman closing 33% of cold pitches",
+      "duration": "2 min",
+      "tag": "Sales"
+    },
+    {
+      "id": "the-saleswoman-closing",
+      "slug": "full-time-pizza-influencer",
+      "title": "A full-time \"pizza influencer\"",
+      "duration": "2 mins",
+      "tag": "Content"
+    }
+  ]
+}
