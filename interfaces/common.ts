@@ -8,4 +8,5 @@ export type Post = {
   title: string;
   duration: string;
   tag: string;
+  image: string;
 };

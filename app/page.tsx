@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useMemo } from "react";
 import { useGetData } from "@/hooks/useGetData";
 import { Loader } from "@/components/ui/loader";
 import { Header } from "@/components/Header";
@@ -9,7 +9,6 @@ import { Content } from "@/components/Content";
 import { useFilterData } from "@/context/filter";
 
 const MarketingDashboard = () => {
-  // const [selectedFilter, setSelectedFilter] = useState<string | null>(null);
   const { selectedFilter, handleSelectFilter } = useFilterData();
   const { categories, posts, isLoading } = useGetData();
 
@@ -31,7 +30,7 @@ const MarketingDashboard = () => {
   }
 
   return (
-    <div className="p-[5%] bg-white text-gray-800 min-h-screen">
+    <div className="py-[2%] bg-white text-gray-800 min-h-screen">
       <Header />
       <Content
         categories={categories}

@@ -16,25 +16,29 @@
       "id": "interview",
       "title": "Same interview. 700x reach.",
       "duration": "30 secs",
-      "tag": "Social"
+      "tag": "Social",
+      "image": "https://ik.imagekit.io/o08ysq9vx/main/lera.jpg"
     },
     {
       "id": "seltzer",
       "title": "Posting seltzer. Making money.",
       "duration": "2 mins",
-      "tag": "Creative"
+      "tag": "Creative",
+      "image": "https://ik.imagekit.io/o08ysq9vx/main/labels2.jpg"
     },
     {
       "id": "saleswoman",
       "title": "The saleswoman closing 33% of cold pitches",
       "duration": "2 min",
-      "tag": "Sales"
+      "tag": "Sales",
+      "image": "https://ik.imagekit.io/o08ysq9vx/main/lizzy2.jpg"
     },
     {
       "id": "pizza-influencer",
       "title": "A full-time \"pizza influencer\"",
       "duration": "2 mins",
-      "tag": "Content"
+      "tag": "Content",
+      "image": "https://ik.imagekit.io/o08ysq9vx/main/adjectives2.jpg"
     }
   ]
 }

@@ -6,6 +6,7 @@ import Modal from "@/components/Modal";
 import { useFilterData } from "@/context/filter";
 import { useGetData } from "@/hooks/useGetData";
 import { getAllPosts } from "@/service/common";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useMemo } from "react";
 
@@ -37,7 +38,7 @@ export default function BlogPage({ params: { category, id } }: BlogPageProps) {
   };
 
   return (
-    <div className="p-[5%] bg-white text-gray-800 min-h-screen">
+    <div className="py-[2%] bg-white text-gray-800 min-h-screen">
       <Header />
       <Content
         categories={categories}
@@ -47,7 +48,15 @@ export default function BlogPage({ params: { category, id } }: BlogPageProps) {
       />
 
       <Modal onClose={handleClose}>
-        <div className="bg-white p-6 rounded-lg shadow-lg max-w-md mx-auto my-16">
+        <Image
+          className="w-full"
+          src={selectedPost?.image as string}
+          alt={selectedPost?.title as string}
+          width={100}
+          height={100}
+          unoptimized={true}
+        />
+        <div className="bg-white p-6 rounded-lg shadow-lg max-w-md mx-auto">
           <h1 className="text-2xl font-bold text-center text-gray-800 mb-4">
             {selectedPost?.title}
           </h1>

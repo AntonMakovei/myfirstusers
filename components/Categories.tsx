@@ -1,4 +1,5 @@
 import { Category } from "@/interfaces/common";
+import { twMerge } from "tailwind-merge";
 
 type Props = {
   categories: Category[];
@@ -12,21 +13,26 @@ export const Categories = ({
   onSelectFilter,
 }: Props) => {
   return (
-    <div className="lg:col-span-1">
+    <div className="w-[12%]">
       {categories.map((category, index) => (
-        <div key={index} className="mb-6">
-          <h2 className="font-bold text-lg mb-3 text-blue-600">
+        <div
+          key={index}
+          className="mb-6 relative border border-gray-200 rounded-2xl p-5 shadow"
+        >
+          <h2 className="font-bold text-lg mb-3 absolute -top-4 bg-black text-white italic px-2 left-0">
             {category.title}
           </h2>
-          <div className="flex flex-wrap gap-2">
+
+          <div className="flex flex-wrap gap-[0.5rem]">
             {category.items.map((item, itemIndex) => (
               <span
                 key={itemIndex}
-                className={`px-3 py-1 rounded-full text-sm cursor-pointer transition-colors ${
+                className={twMerge(
+                  "text-center px-3 py-1 text-sm cursor-pointer transition-colors",
                   selectedFilter === item
-                    ? "bg-blue-600 text-white"
+                    ? "bg-gray-700 text-white"
                     : "bg-gray-200 hover:bg-gray-300 text-gray-700"
-                }`}
+                )}
                 onClick={() =>
                   onSelectFilter?.(selectedFilter === item ? null : item)
                 }
