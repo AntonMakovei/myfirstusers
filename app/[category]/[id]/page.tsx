@@ -3,9 +3,11 @@
 import { Content } from "@/components/Content";
 import { Header } from "@/components/Header";
 import Modal from "@/components/Modal";
+import { useFilterData } from "@/context/filter";
 import { useGetData } from "@/hooks/useGetData";
 import { getAllPosts } from "@/service/common";
 import { useRouter } from "next/navigation";
+import { useMemo } from "react";
 
 type BlogPageProps = {
   params: {
@@ -15,8 +17,14 @@ type BlogPageProps = {
 };
 
 export default function BlogPage({ params: { category, id } }: BlogPageProps) {
-  const { categories, posts, isLoading } = useGetData();
+  const { categories, posts } = useGetData();
+  const { selectedFilter, handleSelectFilter } = useFilterData();
   const router = useRouter();
+
+  const filteredPosts = useMemo(() => {
+    if (!selectedFilter) return posts;
+    return posts.filter((example) => example.tag === selectedFilter);
+  }, [selectedFilter, posts]);
 
   const selectedPost = posts.find((post) => post.id == id);
 
@@ -31,7 +39,12 @@ export default function BlogPage({ params: { category, id } }: BlogPageProps) {
   return (
     <div className="p-[5%] bg-white text-gray-800 min-h-screen">
       <Header />
-      <Content categories={categories} filteredPosts={posts} />
+      <Content
+        categories={categories}
+        filteredPosts={filteredPosts}
+        selectedFilter={selectedFilter}
+        onSelectFilter={handleSelectFilter}
+      />
 
       <Modal onClose={handleClose}>
         <div className="bg-white p-6 rounded-lg shadow-lg max-w-md mx-auto my-16">

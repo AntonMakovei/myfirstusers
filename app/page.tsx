@@ -1,16 +1,16 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { useRouter } from "next/navigation";
 import { useGetData } from "@/hooks/useGetData";
 import { Loader } from "@/components/ui/loader";
 import { Header } from "@/components/Header";
 import { Post } from "@/interfaces/common";
 import { Content } from "@/components/Content";
+import { useFilterData } from "@/context/filter";
 
 const MarketingDashboard = () => {
-  const [selectedFilter, setSelectedFilter] = useState<string | null>(null);
-  const router = useRouter();
+  // const [selectedFilter, setSelectedFilter] = useState<string | null>(null);
+  const { selectedFilter, handleSelectFilter } = useFilterData();
   const { categories, posts, isLoading } = useGetData();
 
   const filteredPosts = useMemo(() => {
@@ -22,10 +22,6 @@ const MarketingDashboard = () => {
     const category = categories.find((category) =>
       category.items.includes(post.tag)
     );
-    const redirect = `${category?.title.toLowerCase()}/${post.id.toLowerCase()}`;
-
-    console.log("hello", redirect);
-    // router.push(redirect);
 
     return `${category?.title.toLowerCase()}/${post.id.toLowerCase()}`;
   };
@@ -41,7 +37,7 @@ const MarketingDashboard = () => {
         categories={categories}
         selectedFilter={selectedFilter}
         onRedirect={handleRedirect}
-        onSelectFilter={setSelectedFilter}
+        onSelectFilter={handleSelectFilter}
         filteredPosts={filteredPosts}
       />
     </div>

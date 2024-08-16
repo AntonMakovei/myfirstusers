@@ -4,8 +4,8 @@ import { Posts } from "./Posts";
 
 type Props = {
   categories: Category[];
-  selectedFilter?: string | null;
-  onSelectFilter?: (value: string | null) => void;
+  selectedFilter: string | null;
+  onSelectFilter: (value: string | null) => void;
   filteredPosts: Post[];
   onRedirect?: (value: Post) => string;
 };
